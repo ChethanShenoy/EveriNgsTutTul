@@ -1,0 +1,120 @@
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+  integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<h1 class="NamCls"> {{340 + 690 }}</h1>
+<h1> {{340 / 0 }}</h1>
+<h1>Hello {{NamVar}}</h1>
+<h2>After 20 years my age will be {{AgeVar +20}}</h2>
+
+<h1 *ngIf="BulVar">Display me</h1>
+
+<h1 *ngIf="AgeVar > 18">You can Vote</h1>
+
+<h1 *ngIf="BulVar; then LoginUid else RegUid"></h1>
+<ng-template #LoginUid>It is true</ng-template>
+<ng-template #RegUid>It is False, RegForm</ng-template>
+
+<ul>
+  <!-- <li *ngFor="let PlaceVar of TripPlaces">{{PlaceVar}}</li>
+  <li *ngFor="let PlaceVar of TripPlaces; let IdxVar =index">{{IdxVar+1}}) {{PlaceVar}}</li> -->
+<!-- <li *ngFor="let PlaceVar of TripPlaces | slice:2:4">{{PlaceVar}}</li> -->
+<!-- <li *ngFor="let PlaceVar of TripPlaces.sort(sortPlaces)">{{PlaceVar}}</li> -->
+<!-- <li *ngFor="let DreamVar of DreamAryVar">{{DreamVar.Name}}, {{DreamVar.Plan}}, {{DreamVar.Cost}}, {{DreamVar.Year}} -->
+
+</ul>
+
+<table border="2" cellpadding="25px">
+  <tr>
+    <th>SI. No</th>
+    <th><a (click)="SortByName()">Name</a></th>
+    <th><a (click)="SortByPlan()">Plan</a></th>
+    <th><a (click)="SortByCost()">Cost</a></th>
+    <th><a (click)="SortByYear()">Year</a></th>
+  </tr>
+
+  <tr *ngFor="let DreamVar of DreamAryVar; let IdxVar=index">
+    <td>{{IdxVar+1}}</td>
+    <td>{{DreamVar.Name}}</td>
+    <td>{{DreamVar.Plan}}</td>
+    <td>{{DreamVar.Cost}}</td>
+    <td>{{DreamVar.Year}}</td>
+  </tr>
+
+</table>
+
+<h1>Signal Switch</h1>
+[11:46] D N, Karthika
+<ng-container [ngSwitch]="ColorVar">
+    <div *ngSwitchCase="'Red'"> STOP </div>
+    <div *ngSwitchCase="'Green'"> PLEASE GO </div>
+    <div *ngSwitchCase="'Yellow'"> AUTO </div>
+    <div *ngSwitchCase="'Grey'"> NOT WORKING </div>
+    <div *ngSwitchDefault> Dft Tst Txt </div>
+</ng-container>
+
+<button (click)="NamBtnFnc()">click me</button>
+<button (dblclick)="NamBtnFnc1()">click me</button>
+
+<h1 [ngClass]="{PurpleCls:ThemeVar == 'Purple', GreenCls: ThemeVar =='Green'}">
+  This is a Dynamic Class
+</h1>
+
+<h1 [ngStyle]="{color: FgdColorVar, background:BgdColor}">This is my color </h1>
+
+<h1 [ngStyle]="{color: StsVar == 'Active' ? 'Green' : 'Red'}">User is <span *ngIf="StsVar != 'Active'">not</span>
+  Working </h1>
+
+<!-- Property Binding -->
+<p [ngClass]="{NamNgsCls: BulVar}"> TstTxt </p>
+
+<!-- Event Binding -->
+<button (click)="NamNgsFnc()">Click here</button>
+
+<!-- Two way Binding -->
+<input type="text" placeholder="Enter anything" [(ngModel)]="NamIptVar">
+<h1>You are typing {{NamIptVar}}</h1>
+
+
+<!-- Music Player -->
+
+<center>
+  <h3>Selected Song: {{PlaySongVar.slice(0,-4)}}</h3>
+
+  <!-- <audio #AdoUid src="assets/AudioFldr/{{PlaySongVar}}" controls></audio> -->
+
+  <!-- or -->
+
+  <audio #AdoNgsUid [src]="'assets/AudioFldr/'+PlaySongVar" controls></audio>
+
+  <hr>
+  <h3>Select any song to play</h3>
+  <table>
+    <tr>
+      <th>SI. No</th>
+      <th>Name</th>
+      <th>Control</th>
+    </tr>
+
+    <tr *ngFor="let SngVar of SngAryVar; let IdxVar=index">
+      <td>{{IdxVar+1}}</td>
+      <td>{{SngVar.slice(0,-4)}}</td>
+      <td><button (click)="PlaySongFnc(IdxVar)">Play</button></td>
+    </tr>
+
+
+  </table>
+</center>
+
+
+<!-- Music Player End -->
+
+
+<img src="assets/ImgFldr/profile.jpg" alt="" width="25%">
+
+
+
+
+
+<ol>
+  <!-- <li *ngFor="let _ of [].constructor(5)">om</li> -->
+</ol> -->

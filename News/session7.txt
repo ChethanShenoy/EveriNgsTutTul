@@ -1,0 +1,426 @@
+<-- SESSION 7 -->
+
+Datatypes
+
+(i) Primitive 
+	-> Numeric:
+			1)Integer (1 Byte)
+			2)Byte (2 Byte)
+			3)Short (4 Byte)
+			4)Int (8 Byte)
+			5)Long 
+
+	-> Non-Numeric:
+			1)float (4 Byte)
+			2)double (8 Byte)
+
+
+(ii) Non-Primitive (8 Bytes)
+	-> Derived:
+			1)Arrays  //size of array or any non primitive datatype is fixed in object oriented datatype
+		
+	-> User-Defined:
+			1)Class
+			2)Sub-Class
+			3)Abstract
+			4)Interface
+
+==================================================================================================================
+
+class A                           => Class A can be compiled but cannot be executed as there is no main function
+{
+	static int a=10;
+	int b=20;
+
+	ps void m1()
+	{
+	}
+
+	ps void m2()
+	{
+	}
+}
+
+class B                           => Can be executed as main function is present
+{
+	ps void main(s[] args)
+	{
+	}
+}
+
+
+============================================================================================================================================================
+
+<--Types of Editors-->
+
+1) Simple Editor (Notepad)                   // We have to go and ask the command prompt ex. Notepad
+
+2) Advanced Editor (Turbo C, Edit Plus)      // It will go for itself but consists of 3 windows ex. In Turbo C (Blue Window -> Code, Grey Window -> Compile, 								Black Window -> Output)
+
+3) IDE (VS Code, Eclipse, Net Beams)         // Does the same as above but in just one window
+
+
+
+============================================================================================================================================================
+
+Class A          //If a program has multiple classes it will get executed
+{
+}
+Class B
+{
+}
+Class C
+{
+}
+
+
+** File name and Public Class name Must be the same because Public class must be there in the entire file so to highlight and priortise it we must do so **
+
+** If there are multiple public class they must be given respective file names **
+
+============================================================================================================================================================
+
+Class A
+{
+
+	PS int a;      	//Default Values: These are the values for global variable by the interpreter(JVM in this case)
+	P int b;
+
+	PS void m1()
+	{
+	   int c;
+	   SOP(c);    	//Compile Time Error: variable 'c' might not be initialised (Occurs only when we use it)
+	}
+
+	PS void m1()
+	{
+	   int d;
+	   SOP(d);
+	}
+}
+
+Class B
+{
+	PSVM (S[] args)
+	{
+	   SOP(A.a);
+	   A.m1();
+	}
+
+}
+
+
+Execution:
+
+A rv1 - new A()
+SOP(rv1.b)
+	rv1.m2()
+
+
+============================================================================================================================================================
+
+
+Class A
+{
+
+	byte b
+	short s
+	int i
+	long l                 //DEFAULT VALUE of all 4 datatype will be "0"
+	_________
+
+	float 
+	double                 //Default Value of both will be "0.0"
+	_________
+
+	char c                 //Default value will be "SPACE"
+	Boolean b              //Default value will be "FALSE"
+}
+
+
+
+
+Class A
+{
+	PS int i[];
+	i[] = {10,20,30}
+	SOP(i)                  //Address will be the Output
+}
+
+
+============================================================================================================================================================
+
+
+Class B
+{
+	PSVM (S[] args)
+	{
+	   SOP(A.a);
+	   A.m1();
+	}
+
+}
+
+
+A rv1 = new A()
+SOP(rv1)                     //Computer outputs NONE since there is no address registered 
+
+============================================================================================================================================================
+
+class A
+{
+	PSVM(S[] args)
+	{
+	   Hapsa();               //Error: No Function Found
+	   A rv1 = new A();       // Constructors will be created, Variables are created, methods are loaded and It can only be used with "new" 							keyword 
+	}
+}
+
+
+Class A
+{
+	string Sname;           // String is one such keyword where you can create the object without using new keyword
+	int Susn;
+}
+
+
+================================================================================================================================================
+
+** Constructors are executed with "new" keyword while initializing a Non-Static Variable. It does not have "Return Type" and It is always Non-Static. It cannnot be called seperately. **
+
+Compiler
+	   => Default
+	   => Non-Parameterized
+
+
+
+class A
+{
+	A(String name, int usn)
+	{
+	    Sname = name;
+	    Susn = usn;
+	}
+	
+	PSVM(S[] args)   
+	{
+		A rv1 = new A();				//If a user writes his own constructor the default constructor is not executed
+			 = new A("Chethan",103)     //Works
+		//CTE method not found A()	
+	}
+}
+
+
+class A
+{
+	void A(String name, int usn)          //Constructor has no Return Type hence it is a method 
+	{
+	    Sname = name;
+	    Susn = usn;
+	}
+	
+	PSVM(S[] args)   
+	{
+		A rv1 = new A();				//Constructor Works
+			 = new A("Chethan",103)     //Doesn't work because only constructors can be created with "new" keyword
+		//CTE	
+	}
+}
+
+					
+==========================================================================================================================================================================
+
+
+** There can be a local and global variable with same name but 2 local or global varibles cannot have same name
+Class A
+{
+	PS int a=10;
+	P int b=20;
+	PS void m1
+	{
+	   int a=30;
+	   SOP(a);
+	   SOP(A.a);
+	}
+
+	P void m2()
+	{
+	   int b=10;                         
+	   SOP(b);                                      //returns 10
+	   SOP(this.b);                                 //It holds the adress of the active object and gives the value to the same object (returns 20)
+	}
+}
+
+
+==========================================================================================================================================================================
+
+<--Constructor Chaining-->
+
+Class A
+{
+	string name;
+	int age;
+	long mob;
+	string email;
+	string pwd;
+
+	A(string name, int age)
+	{
+		this.name = name                           //makes changes in global name 
+		this.age = age
+	}
+
+	A(string name, int age, string email, long mob)
+	{
+		this(name, age)                            //this is function(constructor) used to initialise the name and email from the above function
+		this.email = email
+		this.mob = mob
+	}
+
+	A(string name, int age, string email, long mob, string pwd)
+	{
+		this(name, age, email, mob)
+		this.pwd = pwd
+	}	
+}
+
+
+==========================================================================================================================================================================
+
+<-- Constructor Chaining in Inheritance between sub-class and super-class -->
+
+
+//Super keyword is used to bind the superclass and subclass.
+
+class A
+{
+	string name;
+	int age;
+	A(string name, int age)
+	{
+		this.name = name
+		this.age = age
+	}
+}
+	
+class B extends A
+{
+	string email;
+	long mob;
+	string pwd;
+
+	B(string name, int age, string email, long mob, string pwd)
+	{
+		super(name,age)
+		this.email = email
+		this.mob = mob
+		this.pwd = pwd
+	}
+}
+
+class C
+{
+	PSVM(S[] args)
+	{
+		A rv1 = new A("Ganesh", 60)
+		B rv2 = new B("Ganesh",70,'abc',123,'xyz');
+	}
+}
+
+
+==========================================================================================================================================================================
+
+<-- Function Overhiding and Function Overriding -->
+
+class A
+{
+	int a=10
+	void smoking()
+	{
+		SOP("Father is a smoker");
+	}
+}
+
+class B extends A
+{
+	int a = 20;                                //Compile Time Error(CTE) : variable not found
+	void smoking()                            //Overriding
+	{
+		"Son is a chain-smoker"            //this works
+	}
+}
+
+
+<-- How to Achieve Polymorphism -->
+
+1) Inheritance
+2) Overriding
+3) Create subclass objects and access the overriden methods by superclass reference variables (i.e. loose coupling)
+
+
+
+==========================================================================================================================================================================
+
+<--DDL (for MS SQL not Oracle SQL)-->
+
+-------------------------------------
+
+CREATE TABLE EMPLOYEE
+(
+
+	ID INT,
+	NAME VARCHAR(36),
+	SAL INT,
+);
+
+---------------------------------
+
+ALTER TABLE EMPLOYEE
+ADD CONSTRAINT PK_EMPLOYEE_ID
+PRIMARY KEY(ID);
+
+---------------------------------
+
+ALTER TABLE EMPLOYEE
+ADD CONSTRAINT NN_EMPLOYEE_ID
+CHECK(ID IS NOT NULL)
+
+---------------------------------
+
+ALTER TABLE EMPLOYEE
+DROP CONSTRAINT NN_EMP_ID;
+
+---------------------------------
+
+ALTER TABLE EMPLOYEE
+ALTER COLUMN ID INT NOT NULL;
+
+---------------------------------
+
+ALTER TABLE EMPLOYEE
+ADD CONSTRAINT NN_EMP_NAME
+CHECK(NAME IS NOT NULL)
+
+--------------------------------
+
+ALTER TABLE EMPLOYEE
+ADD CONSTRAINT DEF_EMPLOYEE_SAL
+DEFAULT 1000 FOR (SAL)
+
+--------------------------------
+
+** In MS SQL always auto commit is enabled to Gain control over it we use, BEGIN TRANSACTION. This will disable the auto commit**
+
+BEGIN TRANSACTION           //no semi-colon
+_
+_
+_
+
+COMMIT 
+
+** To Rollback (Works till the previous commit) **
+
+BEGIN TRANSACTION
+ROLLBACK;
+
+

@@ -1,0 +1,9 @@
+<h1>Total Like: {{TtlLykVar}}</h1>
+<!-- <h1>Total Dislikes: {{TtlDysLykVar}}</h1> -->
+<news [topic]="'Politics'" [detail]="'Twin towers to get demolished'" (IncLykVaf)="IncLykSupVaf($event)"
+    (IncDysLykVaf)="IncDysLykSupVar($event)"></news>
+//$event is an inbuilt function
+<news [topic]="'Education'" [detail]="'Shadab gonna be the VTU Topper'" (IncLykVaf)="IncLykSupVaf($event)"
+    (IncDysLykVaf)="IncDysLykSupVar($event)"></news>
+<news [topic]="'Sports'" [detail]="'Next cup is RCB'" (IncLykVaf)="IncLykSupVaf($event)"
+    (IncDysLykVaf)="IncDysLykSupVar($event)"></news>
